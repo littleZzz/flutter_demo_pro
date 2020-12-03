@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 ///颜色色值的
-class ColorsRes {
+class ColorRes {
   static const Color white = Color(0xFFffffff);
   static const Color colorText = Color(0xFFFD7621);
   static const Color colorOrange00 = Color(0xFFed6c00);

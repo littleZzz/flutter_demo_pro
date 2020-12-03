@@ -11,8 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp() {
-    //初始化路由
-    FluroRouter router = FluroRouter();
+    FluroRouter router = FluroRouter(); //初始化路由
     Routes.configureRoutes(router);
     Application.router = router;
   }

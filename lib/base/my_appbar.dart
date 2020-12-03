@@ -5,6 +5,7 @@ import 'package:flutter_demo_pro/base/my_text_widget.dart';
 import 'package:flutter_demo_pro/res/colors_res.dart';
 import 'package:flutter_demo_pro/util/image_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_demo_pro/extension/string_extension.dart';
 
 class MyAppbar extends StatelessWidget {
   String rightImg; //右边的图片按钮
@@ -31,21 +32,21 @@ class MyAppbar extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 110.h,
       alignment: Alignment.centerLeft,
-      color: ColorsRes.white,
+      color: ColorRes.white,
       padding: EdgeInsets.fromLTRB(30.w, 0.0, 30.w, 0.0),
       child: Stack(
         children: <Widget>[
           Row(
             children: <Widget>[
-              Offstage(
-                offstage: !isShowBack,
+              Visibility(
+                visible: isShowBack,
                 child: GestureDetector(
                   child: Container(
                     width: 200.w,
                     height: 110.h,
-                    color: ColorsRes.white,
+                    color: ColorRes.white,
                     alignment: Alignment.centerLeft,
-                    child: Image.asset(ImageUtils.getImgPath('images/back'), width: 100.w, height: 100.w),
+                    child: Image.asset('images/back'.imgPath(), width: 50.w,height: 50.w),
                   ),
                   onTap: () => leftCallback == null
                       ? (Navigator.canPop(context) ? Navigator.pop(context) : "")
@@ -57,7 +58,7 @@ class MyAppbar extends StatelessWidget {
                 child: GestureDetector(
                   child: Container(
                     alignment: Alignment.bottomCenter,
-                    child: Image.asset(ImageUtils.getImgPath(rightImg), width: 100.w),
+                    child: Image.asset(rightImg.imgPath(), width: 100.w),
                   ),
                   onTap: () {
                     if (rigthImgCallback != null) rigthImgCallback();
@@ -68,7 +69,7 @@ class MyAppbar extends StatelessWidget {
               Visibility(
                 visible: rightText.isNotEmpty,
                 child: MyGestureDetector(
-                  child: MyTextWidget(text: rightText, fontSize: 46.0, color: ColorsRes.colorGray66),
+                  child: MyTextWidget(text: rightText, fontSize: 46.0, color: ColorRes.colorGray66),
                   onTap: () {
                     if (rigthTextCallback != null) rigthTextCallback();
                   },
@@ -80,7 +81,7 @@ class MyAppbar extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title,
-              style: TextStyle(fontSize: 52.w, color: ColorsRes.colorGray33),
+              style: TextStyle(fontSize: 52.w, color: ColorRes.colorGray33),
               textAlign: TextAlign.center,
             ),
           ),

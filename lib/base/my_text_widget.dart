@@ -23,7 +23,7 @@ class MyTextWidget extends StatelessWidget {
   MyTextWidget({
     this.text: "",
     this.fontSize: 40.0,
-    this.color: ColorsRes.colorText,
+    this.color: ColorRes.colorText,
     this.fontWeight: FontWeight.normal,
     this.textAlign: TextAlign.start,
     this.maxlines: 100,

@@ -50,7 +50,7 @@ class _MyBaseWidgetState extends State<MyBaseWidget> {
         /*为了统一解决 软健盘弹出问题*/
         resizeToAvoidBottomInset: false,
         body: Container(
-          color: ColorsRes.colorGrayf6,
+          color: ColorRes.colorGrayf6,
           margin: EdgeInsets.fromLTRB(0.0, MediaQuery.of(context).padding.top, 0.0, 0.0),
           child: Column(
             children: <Widget>[
