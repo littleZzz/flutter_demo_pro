@@ -7,6 +7,7 @@ import 'package:flutter_demo_pro/util/image_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_demo_pro/extension/string_extension.dart';
 
+///自定义的一个统一的标题栏
 class MyAppbar extends StatelessWidget {
   String rightImg; //右边的图片按钮
   bool isShowBack;
@@ -46,7 +47,7 @@ class MyAppbar extends StatelessWidget {
                     height: 110.h,
                     color: ColorRes.white,
                     alignment: Alignment.centerLeft,
-                    child: Image.asset('images/back'.imgPath(), width: 50.w,height: 50.w),
+                    child: Image.asset('images/back'.imgPath(), width: 50.w, height: 50.w),
                   ),
                   onTap: () => leftCallback == null
                       ? (Navigator.canPop(context) ? Navigator.pop(context) : "")

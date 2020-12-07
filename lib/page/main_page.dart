@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo_pro/base/my_base_widget.dart';
+import 'package:flutter_demo_pro/base/my_gesturedetector.dart';
 import 'package:flutter_demo_pro/base/my_text_widget.dart';
 import 'package:flutter_demo_pro/res/colors_res.dart';
+import 'package:flutter_demo_pro/routes/application.dart';
+import 'package:flutter_demo_pro/routes/routers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ///主界面
@@ -48,6 +51,21 @@ class _MainPageState extends State<MainPage> {
                   );
                 },
               ),
+            ),
+            MyGestureDetector(
+              child: Container(
+                margin: EdgeInsets.fromLTRB(50.w, 50.h, 50.w, 0.0),
+                padding: EdgeInsets.fromLTRB(0.0, 50.w, 0.0, 50.w),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(200.w),
+                  color: ColorRes.colorOrange00,
+                ),
+                alignment: Alignment.center,
+                child: MyTextWidget(text: "Provider", color: ColorRes.white),
+              ),
+              onTap: () {
+                Application.router.navigateTo(context, Routes.providerPage);
+              },
             )
           ],
         ),

@@ -24,10 +24,22 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # 屏幕适配方案  https://github.com/OpenFlutter/flutter_screenutil
-  flutter_screenutil: ^3.2.0
   #路由 https://github.com/theyakka/fluro   PS:https://juejin.im/post/5d051a5b6fb9a07ec07fbdc5#heading-48
   fluro: ^1.7.8
+  # 状态管理（官方推荐）  https://pub.dev/packages/provider#-installing-tab-   https://www.jianshu.com/p/9cd4b9fb7b44
+  provider: ^4.3.2+3
+  # 网络库 https://github.com/flutterchina/dio
+  dio: ^3.0.10
+  # Dart 常用工具类库 https://github.com/Sky24n/common_utils 包含日期，正则，倒计时，定时任务，时间轴等工具类
+  common_utils: ^1.2.1
+  # 本地存储的库   https://pub.flutter-io.cn/packages/sp_util   PS：不在使用flustars 单独提取要用的sp_util flutter_screenutil库
+  sp_util: ^1.0.1
+  # 屏幕适配方案  https://github.com/OpenFlutter/flutter_screenutil
+  flutter_screenutil: ^3.2.0
+  # Toast插件 https://github.com/OpenFlutter/flutter_oktoast
+  oktoast: ^2.3.2
+
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

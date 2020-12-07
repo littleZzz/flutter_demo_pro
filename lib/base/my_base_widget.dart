@@ -3,8 +3,7 @@ import 'package:flutter_demo_pro/res/colors_res.dart';
 
 import 'my_appbar.dart';
 
-
-//统一的页面空间兰
+///统一的页面空间兰
 class MyBaseWidget extends StatefulWidget {
   String title;
   Widget content;
@@ -47,30 +46,31 @@ class _MyBaseWidgetState extends State<MyBaseWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        /*为了统一解决 软健盘弹出问题*/
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          color: ColorRes.colorGrayf6,
-          margin: EdgeInsets.fromLTRB(0.0, MediaQuery.of(context).padding.top, 0.0, 0.0),
-          child: Column(
-            children: <Widget>[
-              Offstage(
-                offstage: !widget.isShowTitleBar,
-                child: MyAppbar(
-                  title: widget.title,
-                  isShowBack: widget.isShowBack,
-                  leftCallback: widget.leftCallback,
-                  rightText: widget.rightText,
-                  rigthTextCallback: widget.rigthTextCallback,
-                  rightImg: widget.rightImg,
-                  rigthImgCallback: widget.rigthImgCallback,
-                ),
-              ), //标题栏
+      /*为了统一解决 软健盘弹出问题*/
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        color: ColorRes.colorGrayf6,
+        margin: EdgeInsets.fromLTRB(0.0, MediaQuery.of(context).padding.top, 0.0, 0.0),
+        child: Column(
+          children: <Widget>[
+            Offstage(
+              offstage: !widget.isShowTitleBar,
+              child: MyAppbar(
+                title: widget.title,
+                isShowBack: widget.isShowBack,
+                leftCallback: widget.leftCallback,
+                rightText: widget.rightText,
+                rigthTextCallback: widget.rigthTextCallback,
+                rightImg: widget.rightImg,
+                rigthImgCallback: widget.rigthImgCallback,
+              ),
+            ), //标题栏
 //            Gaps.line,
-              Expanded(child: widget.content),
-            ],
-          ),
+            Expanded(child: widget.content),
+          ],
         ),
-        bottomNavigationBar: widget.bottomNavigationBar);
+      ),
+      bottomNavigationBar: widget.bottomNavigationBar,
+    );
   }
 }

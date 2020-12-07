@@ -1,7 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_pro/entity/counter_entity.dart';
 import 'package:flutter_demo_pro/page/launch_page.dart';
 import 'package:flutter_demo_pro/page/main_page.dart';
+import 'package:flutter_demo_pro/page/provider_page.dart';
+import 'package:provider/provider.dart';
 
 class Routes {
   // 用于路由返回监听 didPop didPush等
@@ -10,6 +13,7 @@ class Routes {
   static String root = "/"; //启动页
 
   static String mainPage = "/mainPage"; //主页面
+  static String providerPage = "/providerPage"; //状态管理页面
 
   static void configureRoutes(FluroRouter router) {
     /// 指定路由跳转错误返回页
@@ -18,23 +22,23 @@ class Routes {
     });
 
     router.define(root, handler: Handler(handlerFunc: (context, params) {
-      return LaunchPage();
+      return multiProvider(LaunchPage());
     }));
     router.define(mainPage, handler: Handler(handlerFunc: (context, params) {
-      return MainPage(context.settings.arguments);
+      return multiProvider(MainPage(context.settings.arguments));
+    }));
+    router.define(providerPage, handler: Handler(handlerFunc: (context, params) {
+      return multiProvider(ProviderPage());
     }));
   }
 
-//一个共有的Provider
-//  static MultiProvider multiProvider(Widget page) {
-//    return MultiProvider(
-//      providers: [
-//        ChangeNotifierProvider(create: (_) => HomeBloc()),
-//        ChangeNotifierProvider(create: (_) => CartBloc()),
-//        ChangeNotifierProvider(create: (_) => OrderBloc()),
-//        ChangeNotifierProvider(create: (_) => PersionBloc()),
-//      ],
-//      child: page,
-//    );
-//  }
+  ///一个共有的Provider 默认提供所有的Provider
+  static MultiProvider multiProvider(Widget page) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterEntity()),
+      ],
+      child: page,
+    );
+  }
 }
