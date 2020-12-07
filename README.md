@@ -1,6 +1,9 @@
 # flutter_demo_pro
 
-A new Flutter application.
+基于 fluro、provider、dio、flutter_screenutil、sp_util等主流库搭建的项目框架，简单易用。
+还有已上线项目提炼出来的一些非常好用的BaseWidget封装，如：MyBaseWidget、MyAppbar、MyGestureDetector等。
+
+更新中。。。
 
 ## Getting Started
 
